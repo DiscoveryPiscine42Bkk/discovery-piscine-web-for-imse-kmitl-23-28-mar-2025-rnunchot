@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+td {
+    width: 50%;
+    text-align: center;
+    font-size: 2vw;
+    border: 2px solid black;
+}
+.box1 {
+    background-color: lightblue;
+}
+.box2 {
+    background-color: lightcoral;
+}
