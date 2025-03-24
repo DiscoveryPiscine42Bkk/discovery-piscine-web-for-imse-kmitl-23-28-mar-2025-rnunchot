@@ -1,0 +1,46 @@
+<style>
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;}
+    #balloon {
+      border-radius: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 200px;
+      transition: all 0.1s ease;}
+  </style>
+  <body>
+  <div class="container">
+    <div
+      onclick="AddSize()"
+      onmouseleave="RemoveSize()"
+      id="balloon"
+      style="width: 200px; height: 200px; background-color: red"
+    ></div>
+  </div>
+  <script>
+    const colors = ["red", "green", "blue"];
+    let colorIndex = 0;
+    let size = 200;
+    const updateBalloon = () => {
+      const balloon = document.getElementById("balloon");
+      balloon.style.width = size + "px";
+      balloon.style.height = size + "px";
+      balloon.style.backgroundColor = colors[colorIndex];};
+  
+    const AddSize = () => {
+      size += 10;
+      if (size > 420) {
+        size = 200;
+        colorIndex = 0;} 
+        else {
+        colorIndex = (colorIndex + 1) % colors.length;}
+      updateBalloon();};
+  
+    const RemoveSize = () => {
+      size = Math.max(200, size - 5);
+      colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+      updateBalloon();};
+  </script>
+  </body>
