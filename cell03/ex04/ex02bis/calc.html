@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div class="calculator">
+        <form id="calc">
+            <input id="Left" placeholder="Left">
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input id="Right" placeholder="Right">
+            <input type="submit" value="Try me!">
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+    const $calc = $('#calc');
+
+    setInterval(function() {
+        alert('Please, use me...');
+    }, 30000);
+    
+    $calc.on('submit', function(e) {
+        e.preventDefault();
+        
+        const Left = $('#Left').val();
+        const Right = $('#Right').val();
+        const operator = $('#operator').val();
+
+        const LeftNumber = parseInt(Left);
+        const RightNumber = parseInt(Right);
+
+        if (!isPositiveInteger(Left) || !isPositiveInteger(Right)) {
+            alert('Error :(');
+            return;
+        }
+        
+        if ((operator === '/' || operator === '%') && RightNumber === 0) {
+            alert("It's over 9000!");
+            console.log("It's over 9000!");
+            return;
+        }
+        
+        let result;
+        switch(operator) {
+            case '+':
+                result = LeftNumber + RightNumber;
+                break;
+            case '-':
+                result = LeftNumber - RightNumber;
+                break;
+            case '*':
+                result = LeftNumber * RightNumber;
+                break;
+            case '/':
+                result = LeftNumber / RightNumber;
+                break;
+            case '%':
+                result = LeftNumber % RightNumber;
+                break;
+            default:
+                result = 'Invalid operator';
+        }
+        
+        alert(`Result: ${result}`);
+        console.log(`Result: ${result}`);
+    });
+
+    function isPositiveInteger(value) {
+        return /^\d+$/.test(value) && parseInt(value) >= 0;; 
+    }
+});
+
+    </script>
+</body>
+</html>
