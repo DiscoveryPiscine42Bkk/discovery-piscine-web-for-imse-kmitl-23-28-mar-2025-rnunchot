@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balloon </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
 
         #balloon {
@@ -14,22 +13,16 @@
         }
 
     </style>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h2>Click the balloon to grow</h2>
     <div id="balloon"></div>
    
 
     <script>
         $(document).ready(function() {
-            const maxSize = 420;
-            const minSize = 200;
             const colors = ["red", "green", "blue"];
-            let size = minSize;
+            let size = 200;
             let colorIndex = 0;
-
           
             function updateBalloon() {
                 $('#balloon').css({
@@ -38,11 +31,10 @@
                     'background-color': colors[colorIndex]
                 });
             }
-
             
             $('#balloon').click(function() {
-                if (size >= maxSize) {
-                    size = minSize;
+                if (size >= 411) {
+                    size = 200;
                     
                 } else {
                     size += 10;
@@ -55,7 +47,7 @@
 
             
             $('#balloon').mouseleave(function() {
-                if (size > minSize) {
+                if (size > 200) {
                     size -= 5;
                     
                     colorIndex = (colorIndex - 1 + colors.length) % colors.length;
