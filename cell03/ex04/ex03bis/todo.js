@@ -21,7 +21,7 @@ $(document).ready(function() {
     }
       
     if (Cookies.get(FirstKey)) {
-        Object.keys(Cookies.get()).forEach(kหey => {
+        Object.keys(Cookies.get()).forEach(key => {
             if (key !== FirstKey) {
                 Cookies.remove(key);
             }
