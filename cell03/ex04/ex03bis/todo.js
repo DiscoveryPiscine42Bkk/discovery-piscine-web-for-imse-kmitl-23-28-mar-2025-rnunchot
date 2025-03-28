@@ -26,7 +26,7 @@ $(document).ready(function() {
                 Cookies.remove(key);
             }
         });
-        Cookies.set(FirstKey, "true", { expires: 1 });
+        Cookies.set(FirstKey, "true",);
     } else {
         
         Object.keys(Cookies.get()).forEach(function(key) {
